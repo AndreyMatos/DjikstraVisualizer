@@ -135,14 +135,14 @@ class _MyHomePageState extends State<MyHomePage> {
           p = prev[p];
         }
         matrix[target.x.toInt()][target.y.toInt()] = 3;
-        matrix[start.x.toInt()][start.y.toInt()] = 4;
+        matrix[start.x.toInt()][start.y.toInt()] = 1;
         setState(() {});
         break;
       }
       final neighbors = _neighbors(u);
       for (var n in neighbors) {
         setState(() {
-          matrix[n.x.toInt()][n.y.toInt()] = 1;
+          matrix[n.x.toInt()][n.y.toInt()] = 5;
         });
         final currentDist = dist[u] + 1;
         if (currentDist < dist[n]) {
@@ -184,10 +184,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Color _cellColor(int type) {
     return [
       Colors.white,
-      Colors.red,
+      Colors.purple,
       Colors.blue,
       Colors.green,
-      Colors.yellow
+      Colors.yellow,
+      Colors.purple.withAlpha(128)
     ][type];
   }
 }
